@@ -1,0 +1,16 @@
+<div *ngIf="ave" class="container ave-container">
+  <div class="card">
+      <div class="card-header">
+        Ave
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ ave.cdAve }}</h5>
+        <h3 class="card-text">{{ ave.dsNombreComun }}</h3>
+        <p class="card-text"> {{ ave.dsNombreCientifico }}</p>
+      </div>
+      <div class="card-footer text-muted">
+        <a routerLink="/aves-editar/{{ ave.cdAve }}" class="btn btn-primary">Actualizar</a>
+        <a (click)="deleteAve(ave.cdAve)" class="btn btn-primary">Borrar</a>
+      </div>
+    </div>
+</div>

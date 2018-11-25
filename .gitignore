@@ -15,3 +15,10 @@ buildNumber.properties
 #Netbeans
 nb-configuration.xml
 /nbproject/
+
+#client
+client/npm_modules
+client/.vscode
+
+#App server
+wildfly/

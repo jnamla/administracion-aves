@@ -1,0 +1,32 @@
+<div class="container ave-container">
+
+    <form class="center d-flex m-3" [formGroup]="aveForm" (ngSubmit)="addAve(ave, aveForm.value)" *ngIf="aveForm">
+
+      <div class="form-group p-3 flex-fill-sm">
+        <label for="cdAve">Codigo ave</label>
+        <input class="form-control" type="text" id="cdAve" required formControlName="cdAve" placeholder="Ingrese el codigo del ave">
+        <div class="alert alert-danger" *ngIf="cdAve.invalid && (cdAve.dirty || cdAve.touched)">
+          Debes asignar un codigo de 3 a 5 letras
+        </div>
+      </div>
+
+      <div class="form-group p-3 flex-fill">
+        <label for="dsNombreComun">Nombre Comun</label>
+        <textarea class="form-control" id="dsNombreComun" required formControlName="dsNombreComun" placeholder="Ingrese el nombre del ave"></textarea>
+        <div class="alert alert-danger" *ngIf="dsNombreComun.invalid && (dsNombreComun.dirty || dsNombreComun.touched)">
+            Debes asignar un nombre comun
+        </div>
+      </div>
+
+      <div class="form-group p-3 flex-fill">
+          <label for="dsNombreCientifico">Nombre cientifico</label>
+          <textarea class="form-control" id="dsNombreCientifico" name="dsNombreCientifico" required  formControlName="dsNombreCientifico" placeholder="Ingrese el nombre cientifico"></textarea>
+          <div class="alert alert-danger" *ngIf="dsNombreCientifico.invalid && (dsNombreCientifico.dirty  || dsNombreCientifico.touched)">
+            Debes asignar un nombre cientifico
+          </div> 
+      </div>
+
+      <button type="submit" class="btn btn-primary align-self-center m-3" [disabled]="!aveForm.valid">Guardar</button>
+    </form>
+    
+</div>

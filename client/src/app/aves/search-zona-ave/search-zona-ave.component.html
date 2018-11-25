@@ -1,0 +1,37 @@
+<div class="container">
+
+  <div class="m-3">
+      <form class="center d-flex" [formGroup]="searchForm" (ngSubmit)="search(searchForm.value)" *ngIf="searchForm">
+
+          <div class="form-group p-3 flex-fill">
+              <label for="nombreAve">Nombre del ave</label>
+              <textarea class="form-control" id="nombreAve" required formControlName="nombreAve" placeholder="Ingrese el nombre del ave"></textarea>
+            </div>
+      
+            <div class="form-group p-3 flex-fill align-self-center">
+              <label for="zona">Nombre de la zona</label>
+              <select  class="form-control" id="zona" formControlName="zona">
+                <option [value]="zona.dsNombre" *ngFor="let zona of zonas">{{zona.dsNombre}}</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary align-self-center m-3">Buscar</button>
+          
+        </form>
+  </div>
+
+  <div class="card-columns m-3">
+    <div class="card m-2" *ngFor="let avePais of avesPais">
+      <div class="card-header">{{avePais.ave.cdAve}}</div>
+      <div class="card-body">
+        <h5 class="card-title">{{avePais.ave.dsNombreComun}}</h5>
+        <p class="card-text">{{avePais.ave.dsNombreCientifico}}.</p>
+      </div>
+      <div class="card-footer">
+          <h5 class="card-title">{{avePais.pais.dsNombre}}</h5>
+          <p class="card-text">{{avePais.pais.zona.dsNombre}}.</p>
+      </div>
+    </div>
+  </div>
+
+</div>

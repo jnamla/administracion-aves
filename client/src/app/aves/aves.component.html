@@ -1,0 +1,26 @@
+<div class="container">
+
+    <div class="m-3">
+      <form class="center d-flex" [formGroup]="searchForm" (ngSubmit)="search(searchForm.value)" *ngIf="searchForm">
+
+        <div class="form-group p-3 flex-fill">
+          <label for="nombre">Nombre Comun</label>
+          <textarea class="form-control" id="nombre" required formControlName="nombre" placeholder="Ingrese el codigo del ave"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary align-self-center m-3">Buscar</button>
+      </form>
+    </div>
+
+  <div class="card-columns m-3">
+    <div class="card p3" *ngFor="let ave of aves">
+      <div class="card-header">{{ave.cdAve}}</div>
+      <div class="card-body">
+        <h5 class="card-title">{{ave.dsNombreComun}}</h5>
+        <p class="card-text">{{ave.dsNombreCientifico}}.</p>
+        <a routerLink="/aves/{{ ave.cdAve }}" class="btn btn-primary">Mas detalles</a>
+      </div>
+    </div>
+  </div>
+
+</div>
